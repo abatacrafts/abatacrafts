@@ -1,5 +1,6 @@
 {
   "compilerOptions": {
+    "noImplicitAny": false,
     "target": "es2019",
     "allowJs": true,
     "esModuleInterop": true,
@@ -19,7 +20,9 @@
     "resolveJsonModule": true,
     "checkJs": false
   },
-  "include": ["src/"],
+  "include": [
+    "src/"
+  ],
   "exclude": [
     "**/__tests__",
     "**/__fixtures__",
