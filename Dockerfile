@@ -4,7 +4,7 @@ WORKDIR /app
 
 COPY package*.json  ./
 
-RUN npm install && RUN npm install -g @medusajs/medusa-cli
+RUN npm install -g @medusajs/medusa-cli && npm install 
 
 COPY . .
 
