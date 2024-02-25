@@ -34,26 +34,23 @@ const DATABASE_URL =
 const REDIS_URL = process.env.REDIS_URL || "redis://localhost:6379";
 
 const plugins = [
-  `medusa-fulfillment-manual`,
-  // `medusa-payment-manual`,
-  // `medusa-fulfillment-kaduna`,
-  {
-    resolve: `@medusajs/file-local`,
-    options: {
-      upload_dir: "uploads",
-    },
-  },
-  {
-    resolve: "@medusajs/admin",
-    /** @type {import('@medusajs/admin').PluginOptions} */
-    options: {
-      autoRebuild: false,
-      serve: false,
-      develop: {
-        open: process.env.OPEN_BROWSER !== "false",
-      },
-    },
-  },
+  // {
+  //   resolve: `@medusajs/file-local`,
+  //   options: {
+  //     upload_dir: "uploads",
+  //   },
+  // },
+  // {
+  //   resolve: "@medusajs/admin",
+  //   /** @type {import('@medusajs/admin').PluginOptions} */
+  //   options: {
+  //     autoRebuild: false,
+  //     serve: false,
+  //     develop: {
+  //       open: process.env.OPEN_BROWSER !== "false",
+  //     },
+  //   },
+  // },
   {
     resolve: `medusa-payment-paystack`,
     /** @type {import("medusa-payment-paystack").PluginOptions} */
@@ -66,28 +63,47 @@ const plugins = [
     /** @type {import("medusa-fulfillment-kaduna").PluginOptions} */
   },
   {
-    resolve: `medusa-storage-supabase`,
+    resolve: "medusa-file-r2",
     options: {
-      referenceID: process.env.STORAGE_BUCKET_REF,
-      serviceKey: process.env.STORAGE_SERVICE_KEY,
-      bucketName: process.env.BUCKET_NAME,
+      account_id: process.R2_ACCOUNT_ID,
+      access_key: process.R2_ACCESS_KEY,
+      secret_key: process.R2_SECRET_KEY,
+      bucket: process.env.R2_BUCKET_NAME,
+      public_url: process.env.R2_BUCKET_PUBLIC_URL,
+    },
+  },
+  {
+    resolve: `medusa-plugin-mailjet`,
+    options: {
+      public_key: process.env.MAILJET_PUBLIC_KEY,
+      private_key: process.env.MAILJET_PRIVATE_KEY,
+      from: "AbataCrafts noreply@abatacrafts",
+      template_error_reporting: "AbataCrafts noreply@abatacrafts",
+      customer_created_template: "[used on customer.created]",
+      gift_card_created_template: "[used on gift_card.created]",
+      order_placed_template: "[used on order.placed]",
+      order_canceled_template: "[used on order.canceled]",
+      order_shipped_template: "[used on order.shipment_created]",
+      order_completed_template: "[used on order.completed]",
+      user_password_reset_template: "[used on user.password_reset]",
+      customer_password_reset_template: "[used on customer.password_reset]",
     },
   },
 ];
 
 const modules = {
-  /*eventBus: {
+  eventBus: {
     resolve: "@medusajs/event-bus-redis",
     options: {
-      redisUrl: REDIS_URL
-    }
+      redisUrl: REDIS_URL,
+    },
   },
   cacheService: {
     resolve: "@medusajs/cache-redis",
     options: {
-      redisUrl: REDIS_URL
-    }
-  },*/
+      redisUrl: REDIS_URL,
+    },
+  },
 };
 
 /** @type {import('@medusajs/medusa').ConfigModule["projectConfig"]} */
@@ -97,8 +113,7 @@ const projectConfig = {
   store_cors: STORE_CORS,
   database_url: DATABASE_URL,
   admin_cors: ADMIN_CORS,
-  // Uncomment the following lines to enable REDIS
-  // redis_url: REDIS_URL,
+  redis_url: REDIS_URL,
   database_extra:
     process.env.NODE_ENV !== "development"
       ? {
