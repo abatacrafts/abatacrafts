@@ -12,7 +12,7 @@ RUN yarn build:server
 
 EXPOSE 9000 
 
-ENTRYPOINT ["./entrypoint.sh"]
+# ENTRYPOINT ["./entrypoint.sh"]
 
-# CMD ["medusa", "migrations", "run", "&&", "medusa", "start"]
+CMD ["medusa", "migrations", "run", "&&", "medusa", "start"]
 
