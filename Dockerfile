@@ -8,8 +8,10 @@ RUN yarn global add @medusajs/medusa-cli && yarn
 
 COPY . .
 
-RUN yarn build:server && medusa migrations run
+RUN yarn build:server 
 
 EXPOSE 9000 
 
-CMD ["medusa", "start"]
+ENTRYPOINT ["medusa"]
+
+CMD ["migrations", "run", "&&", "start"]
