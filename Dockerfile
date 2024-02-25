@@ -4,7 +4,7 @@ WORKDIR /app
 
 COPY package.json yarn.lock  ./
 
-RUN npm install -g @medusajs/medusa-cli && npm install 
+RUN yarn global add @medusajs/medusa-cli && yarn 
 
 COPY . .
 
