@@ -12,7 +12,7 @@ RUN yarn build:server
 
 COPY entrypoint.sh .
 
-RUN chmod +x /entrypoint.sh
+RUN chmod +x entrypoint.sh
 
 EXPOSE 9000 
 
