@@ -1,4 +1,4 @@
-FROM node:lts-alpine
+FROM node:lts
 
 WORKDIR /app
 
@@ -14,5 +14,5 @@ EXPOSE 9000
 
 # ENTRYPOINT ["./entrypoint.sh"]
 
-CMD ["medusa", "migrations", "run", "&&", "medusa", "start"]
+# CMD ["medusa", "migrations", "run", "&&", "medusa", "start"]
 
