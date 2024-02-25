@@ -4362,6 +4362,20 @@
     "@stdlib/utils-constructor-name" "^0.0.x"
     "@stdlib/utils-global" "^0.0.x"
 
+"@supabase/node-fetch@^2.6.14":
+  version "2.6.15"
+  resolved "https://registry.yarnpkg.com/@supabase/node-fetch/-/node-fetch-2.6.15.tgz#731271430e276983191930816303c44159e7226c"
+  integrity sha512-1ibVeYUacxWYi9i0cf5efil6adJ9WRyZBLivgjs+AUpewx1F3xPi7gLgaASI2SmIQxPoCEjAsLAzKPgMJVgOUQ==
+  dependencies:
+    whatwg-url "^5.0.0"
+
+"@supabase/storage-js@^2.5.5":
+  version "2.5.5"
+  resolved "https://registry.yarnpkg.com/@supabase/storage-js/-/storage-js-2.5.5.tgz#2958e2a2cec8440e605bb53bd36649288c4dfa01"
+  integrity sha512-OpLoDRjFwClwc2cjTJZG8XviTiQH4Ik8sCiMK5v7et0MDu2QlXjCAW3ljxJB5+z/KazdMOTnySi+hysxWUPu3w==
+  dependencies:
+    "@supabase/node-fetch" "^2.6.14"
+
 "@svgr/babel-plugin-add-jsx-attribute@8.0.0":
   version "8.0.0"
   resolved "https://registry.yarnpkg.com/@svgr/babel-plugin-add-jsx-attribute/-/babel-plugin-add-jsx-attribute-8.0.0.tgz#4001f5d5dd87fa13303e36ee106e3ff3a7eb8b22"
@@ -4780,6 +4794,13 @@
   version "1.3.5"
   resolved "https://registry.yarnpkg.com/@types/mime/-/mime-1.3.5.tgz#1ef302e01cf7d2b5a0fa526790c9123bf1d06690"
   integrity sha512-/pyBZWSLD2n0dcHE3hq8s8ZvcETHtEuF+3E7XVt0Ig2nvsVQXdghHVcEkIWjy9A0wKfTn97a/PSDYohKIlnP/w==
+
+"@types/multer@^1.4.11":
+  version "1.4.11"
+  resolved "https://registry.yarnpkg.com/@types/multer/-/multer-1.4.11.tgz#c70792670513b4af1159a2b60bf48cc932af55c5"
+  integrity sha512-svK240gr6LVWvv3YGyhLlA+6LRRWA4mnGIU7RcNmgjBYFl6665wcXrRfxGp5tEPVHUNm5FMcmq7too9bxCwX/w==
+  dependencies:
+    "@types/express" "*"
 
 "@types/node-forge@^1.3.0":
   version "1.3.11"
@@ -6339,7 +6360,7 @@ cross-env@^7.0.3:
   dependencies:
     cross-spawn "^7.0.1"
 
-cross-fetch@4.0.0:
+cross-fetch@4.0.0, cross-fetch@^4.0.0:
   version "4.0.0"
   resolved "https://registry.yarnpkg.com/cross-fetch/-/cross-fetch-4.0.0.tgz#f037aef1580bb3a1a35164ea2a848ba81b445983"
   integrity sha512-e4a5N8lVvuLgAWgnCrLr2PP0YyDOTHa9H/Rj54dirp61qXnNq46m82bRhNqIA5VccJtWBvPTFRV3TtvHUKPB1g==
@@ -9387,6 +9408,16 @@ medusa-react@^9.0.13:
   integrity sha512-oG3kcNlEElIxY/kA2iFXOalWAsh+9OHtZ+YahCSi8/TbJbV1TikiQXBsuUBnFQqJElQxzLKfRQRUIHHJaLqA4Q==
   dependencies:
     "@medusajs/medusa-js" "*"
+
+medusa-storage-supabase@^0.1.7:
+  version "0.1.7"
+  resolved "https://registry.yarnpkg.com/medusa-storage-supabase/-/medusa-storage-supabase-0.1.7.tgz#aa2175163e7430a43f23ddd822daf096bfc589f9"
+  integrity sha512-Wakt/lvaVjaWcsnhe8arOLSmTG4JlYRrMAzPPZa8k6RPs+k4LAEX01dxLyfW+L8z6I1WFS9CDfS8Bi6YUj6YQw==
+  dependencies:
+    "@medusajs/admin" "7.1.11"
+    "@supabase/storage-js" "^2.5.5"
+    "@types/multer" "^1.4.11"
+    cross-fetch "^4.0.0"
 
 medusa-telemetry@^0.0.17:
   version "0.0.17"

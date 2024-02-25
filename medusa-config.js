@@ -65,6 +65,14 @@ const plugins = [
     resolve: `medusa-fulfillment-kaduna`,
     /** @type {import("medusa-fulfillment-kaduna").PluginOptions} */
   },
+  {
+    resolve: `medusa-storage-supabase`,
+    options: {
+      referenceID: process.env.STORAGE_BUCKET_REF,
+      serviceKey: process.env.STORAGE_SERVICE_KEY,
+      bucketName: process.env.BUCKET_NAME,
+    },
+  },
 ];
 
 const modules = {
@@ -90,7 +98,7 @@ const projectConfig = {
   database_url: DATABASE_URL,
   admin_cors: ADMIN_CORS,
   // Uncomment the following lines to enable REDIS
-  redis_url: REDIS_URL,
+  // redis_url: REDIS_URL,
   database_extra:
     process.env.NODE_ENV !== "development"
       ? {

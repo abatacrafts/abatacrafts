@@ -35,8 +35,8 @@
     "@tanstack/react-query": "4.22.0",
     "body-parser": "^1.19.0",
     "cors": "^2.8.5",
-    "dotenv": "16.3.1",
     "cross-env": "^7.0.3",
+    "dotenv": "16.3.1",
     "express": "^4.17.2",
     "medusa-fulfillment-kaduna": "^1.0.0",
     "medusa-fulfillment-manual": "^1.1.39",
@@ -44,6 +44,7 @@
     "medusa-payment-manual": "^1.0.24",
     "medusa-payment-paystack": "^1.2.1",
     "medusa-payment-stripe": "^6.0.7",
+    "medusa-storage-supabase": "^0.1.7",
     "medusajs": "^1.2.4",
     "prism-react-renderer": "^2.0.4",
     "typeorm": "^0.3.16"
