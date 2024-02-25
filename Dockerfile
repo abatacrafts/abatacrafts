@@ -6,7 +6,10 @@ COPY package*.json  ./
 
 RUN npm install -g @medusajs/medusa-cli && npm install 
 
+
 COPY . .
+
+COPY .env .
 
 RUN yarn build:server && medusa migrations run
 
