@@ -1,22 +1,20 @@
-FROM node:lts
+FROM node:lts-alpine
 
 WORKDIR /app
 
-COPY package.json yarn.lock  ./
+# COPY package.json yarn.lock ./
 
-RUN yarn global add @medusajs/medusa-cli && yarn 
+# RUN yarn global add @medusajs/medusa-cli && yarn
 
 COPY . .
 
-RUN yarn build:server 
-
 COPY entrypoint.sh .
-
 RUN chmod +x entrypoint.sh
 
-EXPOSE 9000 
+# Define the commands in the entrypoint script
+# RUN echo "yarn medusa migrations run && yarn medusa start" > entrypoint.sh
 
-ENTRYPOINT ["./entrypoint.sh"]
+EXPOSE 9000
 
-# CMD ["medusa", "migrations", "run", "&&", "medusa", "start"]
+ENTRYPOINT ["/bin/sh", "-c", "source entrypoint.sh"]
 

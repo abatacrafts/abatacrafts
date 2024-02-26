@@ -1,4 +1,3 @@
 #!/bin/bash
 
-medusa migrations run
-medusa start
+yarn medusa migrations run && yarn medusa start
