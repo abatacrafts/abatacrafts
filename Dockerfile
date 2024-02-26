@@ -2,9 +2,9 @@ FROM node:lts-alpine
 
 WORKDIR /app
 
-# COPY package.json yarn.lock ./
+COPY package.json yarn.lock ./
 
-# RUN yarn global add @medusajs/medusa-cli && yarn
+RUN yarn global add @medusajs/medusa-cli && yarn
 
 COPY . .
 
